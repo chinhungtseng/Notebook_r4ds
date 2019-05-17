@@ -9,6 +9,12 @@ description: "This is my notes and exercises solution on the book 'R for Data Sc
 
 # About this notebook {-}
 
+```{r, include=FALSE}
+if (!require('tinytex')) install.packages('tinytex')
+
+options(tinytex.verbose = TRUE)
+```
+
 這本筆記本是我讀完[**R for Data Science**](https://r4ds.had.co.nz)這本書後所嘗試使用`bookdown`所做的練習、以及這本書中練習題的解法。其中也參考了[**R Markdown: The Definitive Guide**](https://bookdown.org/yihui/rmarkdown/)和[**bookdown: Authoring Books and Technical Documents with R Markdown**](https://bookdown.org/yihui/bookdown/)這兩本書。
 
 This notebook is my practice after reading those books:
