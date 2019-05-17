@@ -1,0 +1,5 @@
+book_filename: "notebook_r4ds_solution"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: ""
