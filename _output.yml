@@ -4,11 +4,5 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">Note with R4DS</a></li>
-    download: ["pdf", "epub"]
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
-bookdown::epub_book: default
+    download: no
+    sharing: no
