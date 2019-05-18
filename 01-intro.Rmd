@@ -2,7 +2,7 @@
 
 Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge. The goal of “R for Data Science” is to help you learn the most important tools in R that will allow you to do data science. After reading this book, you’ll have the tools to tackle a wide variety of data science challenges, using the best parts of R.
 
-## Data Science Project process:
+## Data Science Project process: {-}
 
 Data science is a huge field, and there’s no way you can master it by reading a single book. The goal of this book is to give you a solid foundation in the most important tools. Our model of the tools needed in a typical data science project looks something like this:
 
@@ -10,26 +10,26 @@ Data science is a huge field, and there’s no way you can master it by reading 
 knitr::include_graphics(path = "images/data-science.png")
 ```
 
-## What you won’t learn
+## What you won’t learn {-}
 
 - Big Data
 - Python, Julia, and friends
 - Non-rectangular data
 - Hypothesis confirmation
 
-## Prerequisites
+## Prerequisites {-}
 
-### R
+### R {-}
 
 - Download R from CRAN: https://cran.r-project.org
 - Cloud mirror: https://cloud.r-project.org (which automatically figures it out for you.)
 
-### RStudio
+### RStudio {-}
 
 - Download and install it from http://www.rstudio.com/download
 - RStudio IDE Cheat Sheet: https://www.rstudio.com/resources/cheatsheets/#ide
 
-### The tidyverse packages
+### The tidyverse packages {-}
 
 Install the tidyverse packages:
 ```{r, eval=FALSE}
@@ -46,7 +46,7 @@ Update the packages:
 tidyverse_update()
 ```
 
-### Other packages
+### Other packages {-}
 
 In this book we’ll use three data packages from outside the tidyverse:
 ```{r, eval=FALSE}

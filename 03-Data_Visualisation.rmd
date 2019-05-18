@@ -6,112 +6,202 @@ library(tidyverse)
 
 ## 3.2.4 Exercises {-}
 
-1. Run ggplot(data = mpg). What do you see?
+1. Run `ggplot(data = mpg)`. What do you see?
 
-```{r}
-ggplot(data = mpg)
-```
+   ```{r}
+   ggplot(data = mpg)
+   ```
 
-> empty graph, because we don't set the aesthetic mapping for plot.
+   > empty graph, because we don't set the aesthetic mapping for plot.
 
-2. How many rows are in mpg? How many columns?
+2. How many rows are in `mpg`? How many columns?
 
-```{r, collapse=TRUE}
-dim(mpg)
-```
+   ```{r, collapse=TRUE}
+   dim(mpg)
+   ```
 
-> rows: `r dim(mpg)[1]`, columns: `r dim(mpg)[2]`
+   > rows: `r dim(mpg)[1]`, columns: `r dim(mpg)[2]`
 
-3. What does the drv variable describe? Read the help for ?mpg to find out. 
+3. What does the `drv` variable describe? Read the help for `?mpg` to find out. 
 
-```{r}
-?mpg
-```
+   ```{r}
+   ?mpg
+   ```
 
-> drv: f = front-wheel drive, r = rear wheel drive, 4 = 4wd
+   > drv: f = front-wheel drive, r = rear wheel drive, 4 = 4wd
 
-4. Make a scatterplot of hwy vs cyl.
+4. Make a scatterplot of `hwy` vs `cyl`.
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(x = hwy, y = cyl))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(x = hwy, y = cyl))
+   ```
 
-5. What happens if you make a scatterplot of class vs drv? Why is the plot not useful?
+5. What happens if you make a scatterplot of `class` vs `drv`? Why is the plot not useful?
 
-```{r}
-ggplot(mpg) +
-  geom_point(aes(class, drv))
-```
+   ```{r}
+   ggplot(mpg) +
+     geom_point(aes(class, drv))
+   ```
 
 ## 3.3.1 Exercises {-}
 
 1. What’s gone wrong with this code? Why are the points not blue?
 
-```{r}
-ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
-```
+   ```{r}
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
+   ```
 
-> Need to put color attribute outside the aes()   
-> Because the color argument was set within aes(), not geom_point()
+   > Need to put color attribute outside the aes()   
+   > Because the color argument was set within aes(), not geom_point()
 
-2. Which variables in mpg are categorical? Which variables are continuous? (Hint: type ?mpg to read the documentation for the dataset). How can you see this information when you run mpg?
+2. Which variables in `mpg` are categorical? Which variables are continuous? (Hint: type `?mpg` to read the documentation for the dataset). How can you see this information when you run `mpg`?
 
-```{r, collapse=TRUE}
-str(mpg)
-```
+   ```{r, collapse=TRUE}
+   str(mpg)
+   ```
 
-> Categorical: manufacturer, model, trans, drv, fl, class   
-> Continuous: displ, cyl, cty, hwy
+   > Categorical: manufacturer, model, trans, drv, fl, class   
+   > Continuous: displ, cyl, cty, hwy
 
-3. Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?
+3. Map a continuous variable to `color`, `size`, and `shape`. How do these aesthetics behave differently for categorical vs. continuous variables?
 
-**color:**
+   **color:**
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, color = cty))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, color = cty))
+   ```
 
-**shape:**
+   **shape:**
 
-```{r, error=TRUE, collapse=TRUE, fig.show='hide'}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, shape = cty))
-```
+   ```{r, error=TRUE, collapse=TRUE, fig.show='hide'}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, shape = cty))
+   ```
 
-**size:**
+   **size:**
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, size = cty))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, size = cty))
+   ```
 
 4. What happens if you map the same variable to multiple aesthetics?
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, color = manufacturer, size = manufacturer))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, color = manufacturer, size = manufacturer))
+   ```
 
-5. What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
+5. What does the `stroke` aesthetic do? What shapes does it work with? (Hint: use `?geom_point`)
 
->  To modify the width of the border   
+   >  To modify the width of the border   
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, color = class, stroke = 5))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, color = class, stroke = 5))
+   ```
 
-6. What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)? Note, you’ll also need to specify x and y.
+6. What happens if you map an aesthetic to something other than a variable name, like `aes(colour = displ < 5)`? Note, you’ll also need to specify x and y.
 
-```{r}
-ggplot(mpg) + 
-  geom_point(aes(displ, hwy, color = displ < 5))
-```
+   ```{r}
+   ggplot(mpg) + 
+     geom_point(aes(displ, hwy, color = displ < 5))
+   ```
+
+## 3.5.1 Exercises {-}
+
+1. What happens if you facet on a continuous variable?
+
+   ```{r}
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = drv, y = cyl)) + 
+     facet_wrap(~ displ)
+   ```
+   
+   > Your graph will not make much sense. R will try to draw a separate facet for each unique value of the continuous variable.      If you have too many unique values, you may crash R.
+
+2. What do the empty cells in plot with `facet_grid(drv ~ cyl)` mean? How do they relate to this plot?
+   
+   ```{r, eval=FALSE}
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = drv, y = cyl))
+   ```
+   
+   ``` {r}
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = drv, y = cyl)) + 
+     facet_grid(drv ~ cyl)
+
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = drv, y = cyl, color = drv)) 
+   ```
+   
+   empty cells mean that there are no relation between drv and cyl. no 4 cylinders with rear wheel drive
+
+3. What plots does the following code make? What does . do?
+
+   ```{r, eval=FALSE}
+   ggplot(data = mpg) +  
+     geom_point(mapping = aes(x = displ, y = hwy)) +
+     facet_grid(drv ~ .)
+
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = displ, y = hwy)) +
+     facet_grid(. ~ cyl)
+   ```
+   
+   ```{r, echo=FALSE}
+   ggplot(data = mpg) +  
+     geom_point(mapping = aes(x = displ, y = hwy)) +
+     facet_grid(drv ~ .)
+
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = displ, y = hwy)) +
+     facet_grid(. ~ cyl)
+   ```
+   
+   > Display the plot on the horizontal and/or vertical direction
+   > . acts a placeholder for no variable
 
 
+4. Take the first faceted plot in this section:
+
+   ```{r, eval=FALSE}
+   ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = displ, y = hwy)) + 
+     facet_wrap(~ class, nrow = 2)
+   ```
+
+   What are the advantages to using faceting instead of the colour aesthetic?
+   
+   > Faceting splits the data into separate grids and better visualizes trends within each individual facet.
+   
+   What are the disadvantages? 
+   
+   > disadvantage is that by doing so, it is harder to visualize the overall relationship across facets. 
+   
+   How might the balance change if you had a larger dataset?
+   
+   > The color aesthetic is fine when your dataset is small, but with larger datasets points may begin to overlap with one another. In this situation with a colored plot, jittering may not be sufficient because of the additional color aesthetic.
+
+5. Read `?facet_wrap`. What does `nrow` do? What does `ncol` do?
+
+   > nrow and ncol will show the row numbers and column numbers in the split plot
+   
+   What other options control the layout of the individual panels? 
+   
+   > as.table determines the starting facet to begin filling the plot, and dir determines the starting direction for filling in the plot (horizontal or vertical).
+   
+   Why doesn’t `facet_grid()` have `nrow` and `ncol` arguments?
+
+  > 
+
+6. When using `facet_grid()` you should usually put the variable with more unique levels in the columns. Why?
+
+   > This will extend the plot vertically, where you typically have more viewing space. If you extend it horizontally, the plot will be compressed and harder to view.
 
 
 

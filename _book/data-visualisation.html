@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-05-18" />
+<meta name="date" content="2019-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -144,6 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Data visualisation</a><ul>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises"><i class="fa fa-check"></i>3.2.4 Exercises</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-1"><i class="fa fa-check"></i>3.3.1 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-2"><i class="fa fa-check"></i>3.5.1 Exercises</a></li>
 </ul></li>
 </ul>
 
@@ -167,58 +168,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exercises" class="section level2 unnumbered">
 <h2>3.2.4 Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>Run ggplot(data = mpg). What do you see?</li>
-</ol>
+<li><p>Run <code>ggplot(data = mpg)</code>. What do you see?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg)</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <blockquote>
 <p>empty graph, because we don’t set the aesthetic mapping for plot.</p>
-</blockquote>
-<ol start="2" style="list-style-type: decimal">
-<li>How many rows are in mpg? How many columns?</li>
-</ol>
+</blockquote></li>
+<li><p>How many rows are in <code>mpg</code>? How many columns?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(mpg)
 <span class="co">## [1] 234  11</span></code></pre>
 <blockquote>
 <p>rows: 234, columns: 11</p>
-</blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>What does the drv variable describe? Read the help for ?mpg to find out.</li>
-</ol>
+</blockquote></li>
+<li><p>What does the <code>drv</code> variable describe? Read the help for <code>?mpg</code> to find out.</p>
 <pre class="sourceCode r"><code class="sourceCode r">?mpg</code></pre>
 <blockquote>
 <p>drv: f = front-wheel drive, r = rear wheel drive, 4 = 4wd</p>
-</blockquote>
-<ol start="4" style="list-style-type: decimal">
-<li>Make a scatterplot of hwy vs cyl.</li>
-</ol>
+</blockquote></li>
+<li><p>Make a scatterplot of <code>hwy</code> vs <code>cyl</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hwy, <span class="dt">y =</span> cyl))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>What happens if you make a scatterplot of class vs drv? Why is the plot not useful?</li>
-</ol>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p></li>
+<li><p>What happens if you make a scatterplot of <code>class</code> vs <code>drv</code>? Why is the plot not useful?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(class, drv))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p></li>
+</ol>
 </div>
 <div id="exercises-1" class="section level2 unnumbered">
 <h2>3.3.1 Exercises</h2>
 <ol style="list-style-type: decimal">
-<li>What’s gone wrong with this code? Why are the points not blue?</li>
-</ol>
+<li><p>What’s gone wrong with this code? Why are the points not blue?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <blockquote>
 <p>Need to put color attribute outside the aes()<br />
 Because the color argument was set within aes(), not geom_point()</p>
-</blockquote>
-<ol start="2" style="list-style-type: decimal">
-<li>Which variables in mpg are categorical? Which variables are continuous? (Hint: type ?mpg to read the documentation for the dataset). How can you see this information when you run mpg?</li>
-</ol>
+</blockquote></li>
+<li><p>Which variables in <code>mpg</code> are categorical? Which variables are continuous? (Hint: type <code>?mpg</code> to read the documentation for the dataset). How can you see this information when you run <code>mpg</code>?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mpg)
-<span class="co">## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    234 obs. of  11 variables:</span>
+<span class="co">## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;: 234 obs. of  11 variables:</span>
 <span class="co">##  $ manufacturer: chr  &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span>
 <span class="co">##  $ model       : chr  &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...</span>
 <span class="co">##  $ displ       : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span>
@@ -233,47 +223,108 @@ Because the color argument was set within aes(), not geom_point()</p>
 <blockquote>
 <p>Categorical: manufacturer, model, trans, drv, fl, class<br />
 Continuous: displ, cyl, cty, hwy</p>
-</blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?</li>
-</ol>
+</blockquote></li>
+<li><p>Map a continuous variable to <code>color</code>, <code>size</code>, and <code>shape</code>. How do these aesthetics behave differently for categorical vs. continuous variables?</p>
 <p><strong>color:</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> cty))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p><strong>shape:</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">shape =</span> cty))
 <span class="co">## Error: A continuous variable can not be mapped to shape</span></code></pre>
-<blockquote>
-<p>Error: A continuous variable can not be mapped to shape</p>
-</blockquote>
 <p><strong>size:</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">size =</span> cty))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<ol start="4" style="list-style-type: decimal">
-<li>What happens if you map the same variable to multiple aesthetics?</li>
-</ol>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p></li>
+<li><p>What happens if you map the same variable to multiple aesthetics?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> manufacturer, <span class="dt">size =</span> manufacturer))</code></pre>
 <pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
-<ol start="5" style="list-style-type: decimal">
-<li>What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)</li>
-</ol>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p></li>
+<li><p>What does the <code>stroke</code> aesthetic do? What shapes does it work with? (Hint: use <code>?geom_point</code>)</p>
 <blockquote>
 <p>To modify the width of the border</p>
 </blockquote>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> class, <span class="dt">stroke =</span> <span class="dv">5</span>))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<ol start="6" style="list-style-type: decimal">
-<li>What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ &lt; 5)? Note, you’ll also need to specify x and y.</li>
-</ol>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p></li>
+<li><p>What happens if you map an aesthetic to something other than a variable name, like <code>aes(colour = displ &lt; 5)</code>? Note, you’ll also need to specify x and y.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> displ <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>))</code></pre>
-<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p></li>
+</ol>
+</div>
+<div id="exercises-2" class="section level2 unnumbered">
+<h2>3.5.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>What happens if you facet on a continuous variable?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cyl)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>displ)</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<blockquote>
+<p>Your graph will not make much sense. R will try to draw a separate facet for each unique value of the continuous variable. If you have too many unique values, you may crash R.</p>
+</blockquote></li>
+<li><p>What do the empty cells in plot with <code>facet_grid(drv ~ cyl)</code> mean? How do they relate to this plot?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cyl))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cyl)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_grid</span>(drv <span class="op">~</span><span class="st"> </span>cyl)</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cyl, <span class="dt">color =</span> drv)) </code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
+<p>empty cells mean that there are no relation between drv and cyl. no 4 cylinders with rear wheel drive</p></li>
+<li><p>What plots does the following code make? What does . do?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st">  </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(drv <span class="op">~</span><span class="st"> </span>.)
+
+<span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>cyl)</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-23-1.png" width="672" /><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
+<blockquote>
+<p>Display the plot on the horizontal and/or vertical direction
+. acts a placeholder for no variable</p>
+</blockquote></li>
+<li><p>Take the first faceted plot in this section:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</code></pre>
+<p>What are the advantages to using faceting instead of the colour aesthetic?</p>
+<blockquote>
+<p>Faceting splits the data into separate grids and better visualizes trends within each individual facet.</p>
+</blockquote>
+<p>What are the disadvantages?</p>
+<blockquote>
+<p>disadvantage is that by doing so, it is harder to visualize the overall relationship across facets.</p>
+</blockquote>
+<p>How might the balance change if you had a larger dataset?</p>
+<blockquote>
+<p>The color aesthetic is fine when your dataset is small, but with larger datasets points may begin to overlap with one another. In this situation with a colored plot, jittering may not be sufficient because of the additional color aesthetic.</p>
+</blockquote></li>
+<li><p>Read <code>?facet_wrap</code>. What does <code>nrow</code> do? What does <code>ncol</code> do?</p>
+<blockquote>
+<p>nrow and ncol will show the row numbers and column numbers in the split plot</p>
+</blockquote>
+<p>What other options control the layout of the individual panels?</p>
+<blockquote>
+<p>as.table determines the starting facet to begin filling the plot, and dir determines the starting direction for filling in the plot (horizontal or vertical).</p>
+</blockquote>
+<p>Why doesn’t <code>facet_grid()</code> have <code>nrow</code> and <code>ncol</code> arguments?</p></li>
+</ol>
+<blockquote>
+
+</blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li><p>When using <code>facet_grid()</code> you should usually put the variable with more unique levels in the columns. Why?</p>
+<blockquote>
+<p>This will extend the plot vertically, where you typically have more viewing space. If you extend it horizontally, the plot will be compressed and harder to view.</p>
+</blockquote></li>
+</ol>
 
 </div>
 </div>
