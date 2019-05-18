@@ -4,5 +4,5 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">Note with R4DS</a></li>
-    download: no
+    download: ["pdf"]
     sharing: no

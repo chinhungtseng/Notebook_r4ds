@@ -32,7 +32,7 @@ knitr::include_graphics(path = "images/data-science.png")
 ### The tidyverse packages
 
 Install the tidyverse packages:
-```{r}
+```{r, eval=FALSE}
 if (!require("tidyverse")) install.packages("tidyverse")
 ```
 

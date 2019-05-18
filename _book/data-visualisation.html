@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-05-17" />
+<meta name="date" content="2019-05-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,7 +141,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Data visualisation</a></li>
+<li class="chapter" data-level="3" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>3</b> Data visualisation</a><ul>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises"><i class="fa fa-check"></i>3.2.4 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-1"><i class="fa fa-check"></i>3.3.1 Exercises</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -161,7 +164,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-visualisation" class="section level1">
 <h1><span class="header-section-number">3</span> Data visualisation</h1>
+<div id="exercises" class="section level2 unnumbered">
+<h2>3.2.4 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>Run ggplot(data = mpg). What do you see?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg)</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<blockquote>
+<p>empty graph, because we don’t set the aesthetic mapping for plot.</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>How many rows are in mpg? How many columns?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(mpg)
+<span class="co">## [1] 234  11</span></code></pre>
+<blockquote>
+<p>rows: 234, columns: 11</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>What does the drv variable describe? Read the help for ?mpg to find out.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r">?mpg</code></pre>
+<blockquote>
+<p>drv: f = front-wheel drive, r = rear wheel drive, 4 = 4wd</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Make a scatterplot of hwy vs cyl.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> hwy, <span class="dt">y =</span> cyl))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>What happens if you make a scatterplot of class vs drv? Why is the plot not useful?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(class, drv))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="exercises-1" class="section level2 unnumbered">
+<h2>3.3.1 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li>What’s gone wrong with this code? Why are the points not blue?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<blockquote>
+<p>Need to put color attribute outside the aes()<br />
+Because the color argument was set within aes(), not geom_point()</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Which variables in mpg are categorical? Which variables are continuous? (Hint: type ?mpg to read the documentation for the dataset). How can you see this information when you run mpg?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mpg)
+<span class="co">## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    234 obs. of  11 variables:</span>
+<span class="co">##  $ manufacturer: chr  &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span>
+<span class="co">##  $ model       : chr  &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...</span>
+<span class="co">##  $ displ       : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span>
+<span class="co">##  $ year        : int  1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...</span>
+<span class="co">##  $ cyl         : int  4 4 4 4 6 6 6 4 4 4 ...</span>
+<span class="co">##  $ trans       : chr  &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...</span>
+<span class="co">##  $ drv         : chr  &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...</span>
+<span class="co">##  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...</span>
+<span class="co">##  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...</span>
+<span class="co">##  $ fl          : chr  &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...</span>
+<span class="co">##  $ class       : chr  &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...</span></code></pre>
+<blockquote>
+<p>Categorical: manufacturer, model, trans, drv, fl, class<br />
+Continuous: displ, cyl, cty, hwy</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?</li>
+</ol>
+<p><strong>color:</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> cty))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><strong>shape:</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">shape =</span> cty))
+<span class="co">## Error: A continuous variable can not be mapped to shape</span></code></pre>
+<blockquote>
+<p>Error: A continuous variable can not be mapped to shape</p>
+</blockquote>
+<p><strong>size:</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">size =</span> cty))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>What happens if you map the same variable to multiple aesthetics?</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> manufacturer, <span class="dt">size =</span> manufacturer))</code></pre>
+<pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)</li>
+</ol>
+<blockquote>
+<p>To modify the width of the border</p>
+</blockquote>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> class, <span class="dt">stroke =</span> <span class="dv">5</span>))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ol start="6" style="list-style-type: decimal">
+<li>What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ &lt; 5)? Note, you’ll also need to specify x and y.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(displ, hwy, <span class="dt">color =</span> displ <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>))</code></pre>
+<p><img src="notebook_r4ds_solution_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
@@ -196,7 +310,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["notebook_r4ds_solution.pdf"],
 "toc": {
 "collapse": "subsection"
 }
