@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Introduction | Note with R4DS</title>
   <meta name="description" content="This is my notes and exercises solution on the book ‘R for Data Science’" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Introduction | Note with R4DS" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="" />
 
 
-<meta name="date" content="2019-05-19" />
+<meta name="date" content="2019-05-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,11 +65,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -146,6 +148,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises"><i class="fa fa-check"></i>3.2.4 Exercises</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-1"><i class="fa fa-check"></i>3.3.1 Exercises</a></li>
 <li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-2"><i class="fa fa-check"></i>3.5.1 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-3"><i class="fa fa-check"></i>3.6.1 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-4"><i class="fa fa-check"></i>3.7.1 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-5"><i class="fa fa-check"></i>3.8.1 Exercises</a></li>
+<li class="chapter" data-level="" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-6"><i class="fa fa-check"></i>3.9.1 Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="workflow-basics.html"><a href="workflow-basics.html"><i class="fa fa-check"></i><b>4</b> Workflow: basics</a><ul>
+<li class="chapter" data-level="" data-path="workflow-basics.html"><a href="workflow-basics.html#practice"><i class="fa fa-check"></i>Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>5</b> Data transformation</a><ul>
+<li class="chapter" data-level="" data-path="data-transformation.html"><a href="data-transformation.html#exercises-7"><i class="fa fa-check"></i>5.2.4 Exercises</a></li>
 </ul></li>
 </ul>
 
@@ -175,7 +187,7 @@ payoff is so clear: you get to make elegant and informative plots that help
 you understand data. In <a href="data-visualisation.html#data-visualisation">data visualisation</a> you’ll dive into visualisation,
 learning the basic structure of a ggplot2 plot, and powerful techniques for
 turning data into plots.</p></li>
-<li><p>Visualisation alone is typically not enough, so in [data transformation]
+<li><p>Visualisation alone is typically not enough, so in <a href="data-transformation.html#data-transformation">data transformation</a>
 you’ll learn the key verbs that allow you to select important variables,
 filter out key observations, create new variables, and compute summaries.</p></li>
 <li><p>Finally, in [exploratory data analysis], you’ll combine visualisation and
@@ -183,7 +195,7 @@ transformation with your curiosity and scepticism to ask and answer
 interesting questions about data.</p></li>
 </ul>
 <p>Modelling is an important part of the exploratory process, but you don’t have the skills to effectively learn or apply it yet. We’ll come back to it in <a href="#model-intro">modelling</a>, once you’re better equipped with more data wrangling and programming tools.</p>
-<p>Nestled among these three chapters that teach you the tools of exploration are three chapters that focus on your R workflow. In [workflow: basics], [workflow: scripts], and [workflow: projects] you’ll learn good practices for writing and organising your R code. These will set you up for success in the long run, as they’ll give you the tools to stay organised when you tackle real projects.</p>
+<p>Nestled among these three chapters that teach you the tools of exploration are three chapters that focus on your R workflow. In <a href="workflow-basics.html#workflow-basics">workflow: basics</a>, [workflow: scripts], and [workflow: projects] you’ll learn good practices for writing and organising your R code. These will set you up for success in the long run, as they’ll give you the tools to stay organised when you tackle real projects.</p>
 
 </div>
             </section>

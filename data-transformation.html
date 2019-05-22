@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Note with R4DS</title>
+  <title>5 Data transformation | Note with R4DS</title>
   <meta name="description" content="This is my notes and exercises solution on the book ‘R for Data Science’" />
   <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Note with R4DS" />
+  <meta property="og:title" content="5 Data transformation | Note with R4DS" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Note with R4DS" />
+  <meta name="twitter:title" content="5 Data transformation | Note with R4DS" />
   
   <meta name="twitter:description" content="This is my notes and exercises solution on the book ‘R for Data Science’" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="workflow-basics.html">
 
-<link rel="next" href="intro.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -176,28 +176,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Note with R4DS</h1>
-<p class="date"><em>2019-05-22</em></p>
-</div>
-<div id="about-this-notebook" class="section level1 unnumbered">
-<h1>About this notebook</h1>
-<p>This notebook is my practice after reading those books:</p>
-<ul>
-<li><a href="https://r4ds.had.co.nz"><strong>R for Data Science</strong></a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/"><strong>R Markdown: The Definitive Guide</strong></a></li>
-<li><a href="https://bookdown.org/yihui/bookdown/"><strong>bookdown: Authoring Books and Technical Documents with R Markdown</strong></a></li>
-</ul>
-<p><img src="images/f4ds.png" width="33%" /><img src="images/rmd.png" width="33%" /><img src="images/bookdown.jpg" width="33%" /></p>
+<div id="data-transformation" class="section level1">
+<h1><span class="header-section-number">5</span> Data transformation</h1>
+<div id="exercises-7" class="section level2 unnumbered">
+<h2>5.2.4 Exercises</h2>
+<ol style="list-style-type: decimal">
+<li><p>Find all flights that</p>
+<ol style="list-style-type: decimal">
+<li>Had an arrival delay of two or more hours</li>
+<li>Flew to Houston (<code>IAH</code> or <code>HOU</code>)</li>
+<li>Were operated by United, American, or Delta</li>
+<li>Departed in summer (July, August, and September)</li>
+<li>Arrived more than two hours late, but didn’t leave late</li>
+<li>Were delayed by at least an hour, but made up over 30 minutes in flight</li>
+<li>Departed between midnight and 6am (inclusive)</li>
+</ol></li>
+<li><p>Another useful dplyr filtering helper is <code>between()</code>. What does it do?
+Can you use it to simplify the code needed to answer the previous
+challenges?</p></li>
+<li><p>How many flights have a missing <code>dep_time</code>? What other variables are
+missing? What might these rows represent?</p></li>
+<li><p>Why is <code>NA ^ 0</code> not missing? Why is <code>NA | TRUE</code> not missing?
+Why is <code>FALSE &amp; NA</code> not missing? Can you figure out the general
+rule? (<code>NA * 0</code> is a tricky counterexample!)</p></li>
+</ol>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="workflow-basics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
