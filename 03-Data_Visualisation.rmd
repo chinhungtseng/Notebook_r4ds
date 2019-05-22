@@ -1,6 +1,6 @@
 # Data visualisation
 
-```{r tidyverse ,include=FALSE}
+```{r, include=FALSE}
 if (!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
 ```
